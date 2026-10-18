@@ -48,7 +48,7 @@ public class Player : MonoBehaviour
         }
 
         // Kick if the player presses space
-        if (Input.GetKey(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space))
         {
             Kick();
         }
@@ -84,6 +84,9 @@ public class Player : MonoBehaviour
     // This method is called when the player kicks a Kickable item.
     public void IncreasePoints()
     {
+	_points += 1;
+	_pointsText.text = _points.ToString();
+
         // Inside this method, increase the value of _points by one,
         // and update the _pointsText text with text displaying the new value of _points.
         

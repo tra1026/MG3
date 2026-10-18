@@ -10,7 +10,24 @@ public class Timer : MonoBehaviour
     //
     // Make sure to TUNE this value in the INSPECTOR after you create it!
 
-    //private ??? ???;
+    private float _timeLeft;
+
+	public void BeginTimer(float startTime)
+	{
+	   _timeLeft = startTime;
+	}
+	private void Update()
+	{
+	   _timeLeft -= Time.deltaTime;
+	}
+	public float GetTimeLeft()
+	{
+	   return _timeLeft;
+	}
+	public bool IsFinished()
+	{
+	   return _timeLeft <= 0;
+	}
 
     // STEP 1 -----------------------------------------------------------------
 
@@ -53,14 +70,13 @@ public class Timer : MonoBehaviour
     //}
 
     // This method can be used to check the value of your time member variable.
-    public float GetTimeLeft()
-    {
+    
         // STEP 4 -------------------------------------------------------------
         // REPLACE this line with a new line of code that reutrns the value of
         //      your time member variable.
-        return 0;
+        
         // STEP 4 -------------------------------------------------------------
-    }
+    
 
     // STEP 5 -----------------------------------------------------------------
     // Write a method here named IsFinished that RETURNS TRUE IF our time member
